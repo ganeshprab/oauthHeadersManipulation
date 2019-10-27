@@ -43,7 +43,6 @@ public class SecurityConfig {
                     .authenticationSuccessHandler(new RedirectServerAuthenticationSuccessHandler() {
                         @Override
                         public Mono<Void> onAuthenticationSuccess(WebFilterExchange webFilterExchange, Authentication authentication) {
-                            System.out.println("SUCCESS");
                             webFilterExchange.getExchange().getResponse()
                                     .addCookie(ResponseCookie.from("AUTH_TOKEN", customTokenProvider().createToken(authentication)).path("/")
                                             .httpOnly(true)
