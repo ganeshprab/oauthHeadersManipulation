@@ -18,4 +18,9 @@ public class OAuthAndCustomAuthDemoController {
     public String index(@AuthenticationPrincipal User user) {
         return user.getUsername();
     }
+
+//    @GetMapping("/")
+//    public String index() {
+//        return "index";
+//    }
 }
