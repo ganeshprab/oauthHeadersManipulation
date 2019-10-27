@@ -1,32 +1,18 @@
 package com.jlog.example._config;
 
-import com.mongodb.MongoClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
-import org.springframework.session.data.mongo.JacksonMongoSessionConverter;
+import org.springframework.session.data.mongo.JdkMongoSessionConverter;
+import org.springframework.session.data.mongo.config.annotation.web.reactive.EnableMongoWebSession;
 
-import java.io.IOException;
+import java.time.Duration;
 
-//@Configuration
-//@EnableReactiveMongoRepositories(basePackages = "org.springframework.session.data.mongo", reactiveMongoTemplateRef="mongoSessionTemplate")
+@Configuration
+@EnableMongoWebSession(collectionName = "sessions")
 public class MongoSessionConfig {
 
-//    @Bean
-//    public JacksonMongoSessionConverter mongoSessionConverter() {
-//        return new JacksonMongoSessionConverter();
-//    }
-//
-//    /**
-//     * for embedded mongodb
-//     */
-//    @Bean
-//    public MongoTemplate mongoSessionTemplate() throws IOException {
-//        EmbeddedMongoFactoryBean mongo = new EmbeddedMongoFactoryBean();
-//        mongo.setBindIp("localhost");
-//        MongoClient mongoClient = mongo.getObject();
-//        MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, "session");
-//        return mongoTemplate;
-//    }
+    @Bean
+    public JdkMongoSessionConverter jdkMongoSessionConverter() {
+        return new JdkMongoSessionConverter(Duration.ofMinutes(30));
+    };
 }

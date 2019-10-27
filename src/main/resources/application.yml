@@ -1,5 +1,15 @@
 spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: a594ef246581c57ae46e
+            client-secret: 6cb459ee016bf5ef11a41c47a7fe872701f925a5
+          facebook:
+            client-id: 463661330346080
+            client-secret: c7f173732bf615007b01e0405c8adf9a
   session:
     store-type: mongodb
-mongo:
-  ports: 27017
