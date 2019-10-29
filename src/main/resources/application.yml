@@ -13,3 +13,8 @@ spring:
             client-secret: c7f173732bf615007b01e0405c8adf9a
   session:
     store-type: mongodb
+    mongodb:
+      collection-name: "sessions"
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27017/jlog"
