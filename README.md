@@ -18,9 +18,41 @@ Custom login example with Spring social oauth2 (facebook, github, ...) + reactiv
 <br>
 
 ### Run Example
+
+Edit config file 
+
+```yaml
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: {your github client-id}
+            client-secret: {your github client-secret}
+          facebook:
+            client-id: {your facebook client-id}
+            client-secret: {your facebook client-secret}
+  session:
+    store-type: mongodb
+    mongodb:
+      collection-name: "sessions"
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27017/jlog"
+```
+
+
+
 1. Run MongoDB - ```docker run --name spring-mongo -p 27017:27017 -d mongo:4.2.0-bionic```  
 2. Run Java Example
 3. Move to ```http://localhost:8080/me```, you can see your email address. 
 
 
 <br>
+
+
+### Reference 
+- [Spring Boot Security OAuth2 social login](https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-2/)
