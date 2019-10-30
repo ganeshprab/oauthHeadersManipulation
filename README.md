@@ -9,9 +9,11 @@ Custom login example with Spring social oauth2 (facebook, github, ...) + reactiv
 
 1. Access to login-required resource-url. And the access denied. (if you are not authenticated) 
 2. Authenticate through Spring social OAuth2 (facebook, github) and acquire oauth2 access token from social provider. 
-3. If authenticated and authorized, generate JWT custom-token. And redirect to the resource-url.
-4. Aduthenticated and authorized through custom-token(JWT) login-process.
+3. If authenticated and authorized, generate JWT, custom-token. And redirect to the resource-url.
+4. Authenticated and authorized through custom-token(JWT) login-process.
 
+> OAuth2 authentication is only for custom-token(JWT) generation.
+> - OAuth2 authentication run with spring mongo session.  
 
 <br>
 
