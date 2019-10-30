@@ -35,9 +35,7 @@ public class SecurityConfig {
         // @formatter:off
         return http
                 .authorizeExchange()
-//                .anyExchange().permitAll()
-//                .pathMatchers("/actuator/**", "/demo**").permitAll()
-                .anyExchange().authenticated()
+                    .anyExchange().authenticated()
                 .and()
                 .oauth2Login()
                     .authenticationSuccessHandler(new RedirectServerAuthenticationSuccessHandler() {
