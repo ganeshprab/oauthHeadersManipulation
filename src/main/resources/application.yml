@@ -8,13 +8,3 @@ spring:
           github:
             client-id:
             client-secret:
-          facebook:
-            client-id:
-            client-secret:
-  session:
-    store-type: mongodb
-    mongodb:
-      collection-name: "sessions"
-  data:
-    mongodb:
-      uri: "mongodb://localhost:27017/jlog"
